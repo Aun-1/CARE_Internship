@@ -1,0 +1,26 @@
+class FixedLengthFIFO:
+    def __init__(self, length):
+        self.length = length
+        self.queue = []
+
+    def add(self, numbers):
+        self.queue = numbers + self.queue  # Add the new numbers to the beginning
+        if len(self.queue) > self.length:
+            self.queue = self.queue[:self.length]  # Trim the queue to the desired length
+
+    def get_queue(self):
+        return self.queue
+
+fifo = FixedLengthFIFO(5)
+fifo.add([1])
+print(fifo.get_queue())
+fifo.add([2])
+print(fifo.get_queue())
+fifo.add([3])
+print(fifo.get_queue())
+fifo.add([4])
+print(fifo.get_queue())
+fifo.add([5])
+print(fifo.get_queue())
+fifo.add([6])
+print(fifo.get_queue())
